@@ -1,0 +1,16 @@
+<div *ngIf="account">
+    <h2>{{account.title}}</h2>
+    <span class="income">5000 UAH</span>
+    <span class="spending">5000 UAH</span>
+
+    <div class="panel"
+         [class.income]="account.balance >= 0"
+         [class.spending]="account.balance < 0"
+         (click)="showPayments()">
+        <span>Total:</span>
+        <span>{{account.balance}} {{account.currency.title}}</span>
+    </div>
+
+    <button (click)="addSpending()">-</button>
+    <button (click)="addIncome()">+</button>
+</div>
