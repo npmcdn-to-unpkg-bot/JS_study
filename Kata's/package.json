@@ -1,0 +1,15 @@
+{
+  "name": "kata's",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Slavik Shnitser <slawkobond@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+
+  },
+  "dependencies": {}
+}
