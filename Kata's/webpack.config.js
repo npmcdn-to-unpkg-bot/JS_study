@@ -1,5 +1,5 @@
 var start_index = 1;
-var end_index = 7;
+var end_index = 10;
 
 var getEntry = function(){
     var entry = {};
@@ -7,11 +7,9 @@ var getEntry = function(){
     for(i = start_index; i <= end_index; i++){
         key = '0'.repeat(2 - Math.floor(i/10)) + i;
         entry[key] = './' + key + '_task/main.js';
+        // entry[key] = ['babel-polyfill', './' + key + '_task/main.js'];
     }
     return entry;
-};
-var getOutput = function(){
-
 };
 
 module.exports = {
@@ -25,7 +23,7 @@ module.exports = {
             {
                 test: /\.js?$/,
                 exclude: /(node_modules|bower_components)/,
-                loader: 'babel', // 'babel-loader' is also a legal name to reference
+                loader: 'babel-loader', // 'babel-loader' is also a legal name to reference
                 query: {
                     presets: ['es2015']
                 }
