@@ -44,25 +44,103 @@
 /* 0 */
 /***/ function(module, exports) {
 
-	'use strict';
+	"use strict";
 
-	var helloWorld = [];
+	/**
+	 *   -----------------
+	 * 8 | | | | | | | | |
+	 *   -----------------
+	 * 7 | | | | | | | | |
+	 *   -----------------
+	 * 6 | | | | |x| |x| |
+	 *   -----------------
+	 * 5 | | | |x| | | |x|
+	 *   -----------------
+	 * 4 | | | | | |K| | |
+	 *   -----------------
+	 * 3 | | | |x| | | |x|
+	 *   -----------------
+	 * 2 | | | | |x| |x| |
+	 *   -----------------
+	 * 1 | | | | | | | | |
+	 *   -----------------
+	 *    1 2 3 4 5 6 7 8
+	 */
 
-	helloWorld = function helloWorld() {
-	    var one = Object.keys({ key: true }).length,
-	        two = one + one,
-	        three = two + one,
-	        four = three + one,
-	        five = four + one,
-	        six = five + one,
-	        seven = six + one,
-	        eight = seven + one,
-	        nine = eight + one,
-	        ten = nine + one;
-	    return String.fromCharCode(ten * seven + two) + String.fromCharCode(ten * ten + one) + String.fromCharCode(ten * ten + eight) + String.fromCharCode(ten * ten + eight) + String.fromCharCode(ten * (ten + one) + one) + String.fromCharCode(ten * three + two) + String.fromCharCode(ten * eight + seven) + String.fromCharCode(ten * (ten + one) + one) + String.fromCharCode(ten * (ten + one) + four) + String.fromCharCode(ten * ten + eight) + String.fromCharCode(ten * ten) + String.fromCharCode(ten * three + three);
-	};
+	function canReach(from, to, movements) {
+	    var squares = knightEngine(from, movements);
+	    return squares.some(function (sq) {
+	        return sq[0] === to[0] && sq[1] === to[1];
+	    });
+	}
 
-	Test.run([Test.expect(helloWorld()).toEqual('Hello World!')]);
+	function moveKnight(from) {
+	    var result = [];
+	    if (from[0] + 2 <= 8) {
+	        from[1] + 1 <= 8 && result.push([from[0] + 2, from[1] + 1]);
+	        from[1] - 1 >= 1 && result.push([from[0] + 2, from[1] - 1]);
+	    }
+	    if (from[0] + 1 <= 8) {
+	        from[1] + 2 <= 8 && result.push([from[0] + 1, from[1] + 2]);
+	        from[1] - 2 >= 1 && result.push([from[0] + 1, from[1] - 2]);
+	    }
+	    if (from[0] - 1 <= 8) {
+	        from[1] + 2 <= 8 && result.push([from[0] - 1, from[1] + 2]);
+	        from[1] - 2 >= 1 && result.push([from[0] - 1, from[1] - 2]);
+	    }
+	    if (from[0] - 2 <= 8) {
+	        from[1] + 1 <= 8 && result.push([from[0] - 2, from[1] + 1]);
+	        from[1] - 1 >= 1 && result.push([from[0] - 2, from[1] - 1]);
+	    }
+	    return result;
+	}
+
+	function moveKnightRandom(from) {
+	    var squares = moveKnight(from);
+	    return squares[Math.floor(Math.random() * squares.length)];
+	}
+
+	function moveKnightFromArray(fromPositions) {
+	    return fromPositions.reduce(function (prev, from) {
+	        return prev.concat(moveKnight(from));
+	    }, []);
+	}
+
+	function compose() {
+	    for (var _len = arguments.length, functions = Array(_len), _key = 0; _key < _len; _key++) {
+	        functions[_key] = arguments[_key];
+	    }
+
+	    return function (value) {
+	        return functions.reduceRight(function (prev, fn) {
+	            return fn(prev);
+	        }, value);
+	    };
+	}
+
+	function bind(f) {
+	    return function (values) {
+	        return values.reduce(function (prev, v) {
+	            return prev.concat(f(v));
+	        }, []);
+	    };
+	}
+
+	function unit(value) {
+	    return [value];
+	}
+
+	function knightEngine(from, movements) {
+	    var currentMove = unit;
+	    for (var i = 0; i < movements; i++) {
+	        currentMove = compose(bind(moveKnight), currentMove);
+	    }
+	    return currentMove(from);
+	}
+
+	console.log(knightEngine([6, 2], 1));
+	console.log(knightEngine([6, 2], 2));
+	console.log(knightEngine([6, 2], 3));
 
 /***/ }
 /******/ ]);
