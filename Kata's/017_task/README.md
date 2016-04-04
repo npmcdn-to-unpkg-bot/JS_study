@@ -51,7 +51,6 @@ function canReach(from, to, movements) {
 *
 * moveKnight :: Square -> [Square]
 */
-
 function moveKnight(from) {
 }
 ```
@@ -64,7 +63,6 @@ function moveKnight(from) {
 * ex: moveKnightRandom([6, 2]) -> [ 8, 1 ]
 * moveKnightRandom :: Square -> Square
 */
-
 function moveKnightRandom(from) {
 }
 ```
@@ -92,28 +90,22 @@ function compose(fn1[, fn2, ...., fnz]) {
 function addOne(x) {
   return x + 1;
 }
-
 /*
 *        double :: Number -> Number
 */
 function double(x) {
   return x * 2;
 }
-
 var composed = compose (addOne, double); //compose is right associative
-
 composed(3); //7 <- addOne(double(3))
-
 compose(addOne, double, double)(3); //13
 compose(compose(addOne, double), double)(3); //13
-
 /*
 * wrap :: a -> [a]
 */
 function wrap(x) {
   return [x];
 }
-
 compose(wrap, addOne, double, double)(3); //[13]
 ```
 
@@ -142,9 +134,7 @@ function moveKnightFromArray(fromPositions) {
     return ac.concat(to);
   }, []);
 }
-
 moveKnightFromArray([[6,2], [7,6]]); // [ [ 8, 1 ],  [ 8, 3 ],  [ 4, 1 ],  [ 4, 3 ],  [ 7, 4 ],  [ 5, 4 ],  [ 5, 5 ],  [ 5, 7 ],  [ 8, 4 ],  [ 8, 8 ],  [ 6, 4 ],  [ 6, 8 ] ]
-
 //moveKnightFromArray([[6,2], [7,6]]); -> returns valid positions from these starting squares
 ```
 
@@ -181,7 +171,6 @@ moveKnight(moveKnight(square));
 > Of course, in this simple example, the composition works for **moveKnightFromArray()**:
 ```
 moveKnightFromArray :: [square] -> [square]
-
 (moveKnightFromArray(moveKnightFromArray([square])));
 ```
 
