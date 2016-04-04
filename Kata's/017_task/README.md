@@ -34,7 +34,6 @@
 *
 * canReach :: Square -> Square -> Int -> Boolean
 */
-
 function canReach(from, to, movements) {
 }
 ```
