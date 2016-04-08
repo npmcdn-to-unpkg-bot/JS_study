@@ -44,26 +44,17 @@
 /* 0 */
 /***/ function(module, exports) {
 
-	'use strict';
+	"use strict";
 
-	function permutations(string) {
-	    if (string.length <= 1) {
-	        return [string];
+	// Return the nth triangular number
+	function triangular(n) {
+	    if (n <= 0) {
+	        return 0;
 	    }
-	    var result = [];
-	    string.split('').forEach(function (char, index, array) {
-	        var arrCopy = array.slice();
-	        arrCopy.splice(index, 1);
-	        result = result.concat(permutations(arrCopy.join('')).map(function (item) {
-	            return char + item;
-	        }));
-	    });
-	    return result.filter(function (item, pos, self) {
-	        return self.indexOf(item) == pos;
-	    });
+	    return n + triangular(n - 1);
 	}
 
-	Test.run([Test.expect(permutations('ab')).toEqual(['ab', 'ba']), Test.expect(permutations('abc')).toEqual(["abc", "acb", "bac", "bca", "cab", "cba"])]);
+	Test.run([Test.expect(triangular(2)).toBe(3), Test.expect(triangular(4)).toBe(10)]);
 
 /***/ }
 /******/ ]);

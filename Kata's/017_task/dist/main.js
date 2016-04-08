@@ -84,11 +84,11 @@
 	        from[1] + 2 <= 8 && result.push([from[0] + 1, from[1] + 2]);
 	        from[1] - 2 >= 1 && result.push([from[0] + 1, from[1] - 2]);
 	    }
-	    if (from[0] - 1 <= 8) {
+	    if (from[0] - 1 >= 1) {
 	        from[1] + 2 <= 8 && result.push([from[0] - 1, from[1] + 2]);
 	        from[1] - 2 >= 1 && result.push([from[0] - 1, from[1] - 2]);
 	    }
-	    if (from[0] - 2 <= 8) {
+	    if (from[0] - 2 >= 1) {
 	        from[1] + 1 <= 8 && result.push([from[0] - 2, from[1] + 1]);
 	        from[1] - 1 >= 1 && result.push([from[0] - 2, from[1] - 1]);
 	    }

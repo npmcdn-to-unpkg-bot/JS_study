@@ -1,11 +1,17 @@
 var start_index = 1;
-var end_index = 17;
+var end_index = 21;
 
 var getEntry = function(){
     var entry = {};
     var i, key;
     for(i = start_index; i <= end_index; i++){
-        key = '0'.repeat(2 - Math.floor(i/10)) + i;
+        var prefix = '';
+        switch(true){
+            case i >= 1 && i <= 9: prefix = '00'; break;
+            case i >= 10 && i <= 99:  prefix = '0'; break;
+            default:  prefix = '';
+        }
+        key = prefix + i;
         entry[key] = './' + key + '_task/main.js';
         // entry[key] = ['babel-polyfill', './' + key + '_task/main.js'];
     }

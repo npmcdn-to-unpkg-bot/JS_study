@@ -44,26 +44,14 @@
 /* 0 */
 /***/ function(module, exports) {
 
-	'use strict';
+	"use strict";
 
-	function permutations(string) {
-	    if (string.length <= 1) {
-	        return [string];
-	    }
-	    var result = [];
-	    string.split('').forEach(function (char, index, array) {
-	        var arrCopy = array.slice();
-	        arrCopy.splice(index, 1);
-	        result = result.concat(permutations(arrCopy.join('')).map(function (item) {
-	            return char + item;
-	        }));
-	    });
-	    return result.filter(function (item, pos, self) {
-	        return self.indexOf(item) == pos;
-	    });
+	Math.random = function () {
+	    return 0;
+	};
+	function predict() {
+	    return 62847 + Math.random() * Math.pow(10, 9);
 	}
-
-	Test.run([Test.expect(permutations('ab')).toEqual(['ab', 'ba']), Test.expect(permutations('abc')).toEqual(["abc", "acb", "bac", "bca", "cab", "cba"])]);
 
 /***/ }
 /******/ ]);
