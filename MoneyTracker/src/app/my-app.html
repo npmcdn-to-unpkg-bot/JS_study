@@ -11,6 +11,14 @@
         <a [routerLink]=" ['/CategoriesList'] ">
             Categories
         </a>
+        |
+        <a [routerLink]=" ['/AccountEdit', {accountID: 1}] ">
+            Edit account
+        </a>
+        |
+        <a [routerLink]=" ['/AccountEdit', {accountID: void}] ">
+            Create account
+        </a>
     </nav>
 
     <main>

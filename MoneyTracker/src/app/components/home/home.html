@@ -8,10 +8,10 @@
             <span>{{activeAccount.balance}}</span>$
         </div>
         <div class="buttons-section">
-            <a class="big-btn btn-minus">
+            <a class="big-btn btn-minus" [routerLink]=" ['PaymentEdit', {paymentID: void}] ">
                 -
             </a>
-            <a class="big-btn btn-plus">
+            <a class="big-btn btn-plus" [routerLink]=" ['PaymentEdit', {paymentID: void}] ">
                 +
             </a>
         </div>

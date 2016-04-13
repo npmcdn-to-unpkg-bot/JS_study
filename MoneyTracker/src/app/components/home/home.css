@@ -12,6 +12,7 @@
 .center .account-wrapper .buttons-section .big-btn{
     display: inline-block;
     cursor: pointer;
+    text-decoration: none;
     width: 60px;
     font-size: 50px;
     border-radius: 50%;
