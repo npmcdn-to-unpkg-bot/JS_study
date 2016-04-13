@@ -10,6 +10,14 @@ export class AccountService {
             setTimeout( () => resolve( ACCOUNTS ), 1000)
         );
     }
+    getAccount(ID: number) {
+        return new Promise<AccountInterface> ( resolve =>
+            setTimeout( () =>
+                    resolve( ACCOUNTS.filter( (account) => account.ID == ID )[0] ),
+                1000
+            )
+        );
+    }
     getActiveAccount() {
         return new Promise<AccountInterface> (resolve =>
             setTimeout( () => resolve( ActiveAccountCtrl.getActiveAccount() ), 1000)

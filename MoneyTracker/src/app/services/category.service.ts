@@ -10,6 +10,14 @@ export class CategoryService {
             setTimeout( () => resolve( CATEGORIES ), 1000)
         );
     }
+    getCategory(ID: number) {
+        return new Promise<CategoryInterface> ( resolve =>
+            setTimeout( () =>
+                resolve( CATEGORIES.filter( (category) => category.ID == ID )[0] ),
+                1000
+            )
+        );
+    }
 
     // getCategory(ID: number) {
     //     return Promise.resolve(CATEGORIES).then(

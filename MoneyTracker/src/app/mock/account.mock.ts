@@ -1,9 +1,9 @@
 import { AccountInterface } from '../interfaces/account.interface';
 
 let _ACCOUNTS: AccountInterface[] = [
-        {"ID": 1,   "title": "Cash",        "balance": 255.50,      "dateCreated": new Date(),  "dateUpdated": new Date()},
-        {"ID": 2,   "title": "CreditCard",  "balance": 7485.84,     "dateCreated": new Date(),  "dateUpdated": new Date()},
-        {"ID": 3,   "title": "Pay-check",   "balance": 1000,        "dateCreated": new Date(),  "dateUpdated": new Date()}
+        {"ID": 1,   "currencyID": 1,   "title": "Cash",        "balance": 255.50,      "dateCreated": new Date(),  "dateUpdated": new Date()},
+        {"ID": 2,   "currencyID": 2,   "title": "CreditCard",  "balance": 7485.84,     "dateCreated": new Date(),  "dateUpdated": new Date()},
+        {"ID": 3,   "currencyID": 3,   "title": "Pay-check",   "balance": 1000,        "dateCreated": new Date(),  "dateUpdated": new Date()}
     ],
     _ActiveAccount = _ACCOUNTS[0];
 
