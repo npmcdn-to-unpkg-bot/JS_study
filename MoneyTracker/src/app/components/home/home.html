@@ -1,0 +1,20 @@
+
+<div class="center">
+    <div *ngIf="activeAccount" class="account-wrapper">
+        <div class="title-section">
+            <span>{{activeAccount.title}}</span>
+        </div>
+        <div class="balance-section">
+            <span>{{activeAccount.balance}}</span>$
+        </div>
+        <div class="buttons-section">
+            <a class="big-btn btn-minus">
+                -
+            </a>
+            <a class="big-btn btn-plus">
+                +
+            </a>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,27 @@
+
+.center{
+    text-align: center;
+    font-family: Verdana;
+}
+.center .account-wrapper .title-section{
+    font-size: 35px;
+}
+.center .account-wrapper .balance-section{
+    font-size: 30px;
+}
+.center .account-wrapper .buttons-section .big-btn{
+    display: inline-block;
+    cursor: pointer;
+    width: 60px;
+    font-size: 50px;
+    border-radius: 50%;
+    border: 5px solid;
+}
+.big-btn.btn-plus{
+    color: green;
+    border-color: green;
+}
+.big-btn.btn-minus{
+    color: red;
+    border-color: red;
+}
